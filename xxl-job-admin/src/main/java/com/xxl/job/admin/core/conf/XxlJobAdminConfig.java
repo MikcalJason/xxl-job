@@ -40,6 +40,7 @@ public class XxlJobAdminConfig implements InitializingBean, DisposableBean {
         xxlJobScheduler.init();
     }
 
+    //对象销毁时
     @Override
     public void destroy() throws Exception {
         xxlJobScheduler.destroy();

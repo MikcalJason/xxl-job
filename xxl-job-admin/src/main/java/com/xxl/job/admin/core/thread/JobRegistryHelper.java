@@ -30,7 +30,7 @@ public class JobRegistryHelper {
 	private volatile boolean toStop = false;
 
 	public void start(){
-
+		// 初始化线程池
 		// for registry or remove
 		registryOrRemoveThreadPool = new ThreadPoolExecutor(
 				2,
@@ -52,7 +52,7 @@ public class JobRegistryHelper {
 					}
 				});
 
-		// for monitor
+		// for monitor，客户端剔除
 		registryMonitorThread = new Thread(new Runnable() {
 			@Override
 			public void run() {

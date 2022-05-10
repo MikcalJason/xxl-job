@@ -34,7 +34,7 @@ public class ExecutorRegistryThread {
             logger.warn(">>>>>>>>>>> xxl-job, executor registry config fail, adminAddresses is null.");
             return;
         }
-
+        //一个线程负责绑定Netty通道，监听请求，另一个线程负责起注册心跳，默认30s一次
         registryThread = new Thread(new Runnable() {
             @Override
             public void run() {

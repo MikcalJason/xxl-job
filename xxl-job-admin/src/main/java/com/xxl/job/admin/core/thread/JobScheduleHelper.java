@@ -239,7 +239,6 @@ public class JobScheduleHelper {
                         // second data
                         List<Integer> ringItemData = new ArrayList<>();
                         int nowSecond = Calendar.getInstance().get(Calendar.SECOND);   // 避免处理耗时太长，跨过刻度，向前校验一个刻度；
-                        logger.info("nowSeconde:{}", nowSecond);
                         for (int i = 0; i < 2; i++) {
                             List<Integer> tmpData = ringData.remove((nowSecond + 60 - i) % 60);
                             if (tmpData != null) {
@@ -252,7 +251,6 @@ public class JobScheduleHelper {
                         if (ringItemData.size() > 0) {
                             // do trigger
                             for (int jobId : ringItemData) {
-                                logger.info("do trigger:{}", jobId);
                                 // do trigger
                                 JobTriggerPoolHelper.trigger(jobId, TriggerTypeEnum.CRON, -1, null, null, null);
                             }

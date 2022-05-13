@@ -82,7 +82,6 @@ public class JobTriggerPoolHelper {
         if (jobTimeoutCount != null && jobTimeoutCount.get() > 10) {      // job-timeout 10 times in 1 min
             triggerPool_ = slowTriggerPool;
         }
-        logger.info("triggerPool size {}", triggerPool_.getPoolSize());
         // trigger
         triggerPool_.execute(new Runnable() {
             @Override
